@@ -1,0 +1,26 @@
+{
+  "name": "sinetudio",
+  "version": "1.0.0",
+  "description": "Cypress by SiNEtudiO",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SiNEtudio/Cypress.git"
+  },
+  "keywords": [
+    "cypress",
+    "test"
+  ],
+  "author": "Khwanchanok D.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SiNEtudio/Cypress/issues"
+  },
+  "homepage": "https://github.com/SiNEtudio/Cypress#readme",
+  "dependencies": {
+    "cypress": "^5.2.0"
+  }
+}
