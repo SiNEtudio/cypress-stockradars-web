@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SiNEtudio/Cypress.git"
+    "url": "git+https://github.com/SiNEtudio/cypress-stockradars-web.git"
   },
   "keywords": [
     "cypress",
@@ -17,9 +17,9 @@
   "author": "Khwanchanok D.",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/SiNEtudio/Cypress/issues"
+    "url": "https://github.com/SiNEtudio/cypress-stockradars-web/issues"
   },
-  "homepage": "https://github.com/SiNEtudio/Cypress#readme",
+  "homepage": "https://github.com/SiNEtudio/cypress-stockradars-web#readme",
   "dependencies": {
     "cypress": "^5.2.0"
   }
