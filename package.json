@@ -4,7 +4,8 @@
   "description": "Cypress by SiNEtudiO",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "run": "./node_modules/.bin/cypress open"
   },
   "repository": {
     "type": "git",

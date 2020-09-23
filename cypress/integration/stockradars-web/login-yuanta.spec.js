@@ -77,7 +77,7 @@ describe("Login with \'Yuanta Securities\'", () => {
     });
   });
 
-  it("Should access all menu", () => {d
+  it("Should access all menu", () => {
     cy.get('[class="md-button md-ink-ripple hide-gt-md"]')
       .contains("menu")
       .click();
