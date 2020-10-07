@@ -7,7 +7,6 @@ describe("Login with \'Yuanta Securities\'", () => {
   });
 
   it("Should appear select broker dropdown", () => {
-    //cy.get('[class="blue md-button md-ink-ripple flex"]').should(
     cy.get('[class="blue md-button md-ink-ripple flex"]').should(
       "contain",
       "เลือกบริษัทหลักทรัพย์ที่นี่"
@@ -78,7 +77,7 @@ describe("Login with \'Yuanta Securities\'", () => {
   });
 
   it("Should access all menu", () => {
-    cy.get('[class="md-button md-ink-ripple hide-gt-md"]')
+    cy.get('[class="md-list-item-text"]')
       .contains("menu")
       .click();
   });
