@@ -3,7 +3,6 @@
 describe(
   "Visit stockradars.co Website and access 'Trade' menu",
   {
-    //cy.viewport(1920, 1080)
     viewportWidth: 1920,
     viewportHeight: 1080,
   },
