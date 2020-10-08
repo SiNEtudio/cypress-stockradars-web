@@ -268,9 +268,6 @@ describe(
     });
 
     it("Should logout to landing page", () => {
-      // cy.get('[class="md-button md-ink-ripple hide-gt-md"]')
-      //   .contains("menu")
-      //   .click();
       cy.get('[class="md-list-item-text"]').contains("Logout").click();
       cy.get('[class="_md md-default-theme md-transition-in"]')
         .contains("YES")
