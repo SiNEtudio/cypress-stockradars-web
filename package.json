@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "run": "./node_modules/.bin/cypress open"
+    "run": "./node_modules/.bin/cypress open",
+    "remove-git-file": "git rm --cached mylogfile.log",
+    "remove-git-directory": "git rm --cached -r mydirectory"
   },
   "repository": {
     "type": "git",
