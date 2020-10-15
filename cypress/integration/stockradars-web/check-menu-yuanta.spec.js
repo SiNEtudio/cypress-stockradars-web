@@ -37,6 +37,6 @@ describe("Login with 'Yuanta Securities'", () => {
   });
 
   it("Should access all menu", () => {
-    cy.get('[class="md-list-item-text"]').contains("menu").click();
+    cy.get('[class="md-list-item-text"]').contains("Market Mover").click();
   });
 });
