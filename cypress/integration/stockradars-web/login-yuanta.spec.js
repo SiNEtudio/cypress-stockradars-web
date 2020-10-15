@@ -1,12 +1,7 @@
 /// <reference types="Cypress" />
 
 describe(
-  "Login with 'Yuanta Securities'",
-  {
-    viewportWidth: 1920,
-    viewportHeight: 1080,
-  },
-  () => {
+  "Login with 'Yuanta Securities'",() => {
     // beforeEach(() => {
     it("Should visit StockRadars Website (Broker Login)", () => {
       cy.visit("https://stockradars.co/trade");

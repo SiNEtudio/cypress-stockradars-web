@@ -1,3 +1,6 @@
 {
+  "baseUrl":"https://stockradars.co/trade",
+  "viewportWidth": 1920,
+  "viewportHeight": 1080,
   "projectId": "avy9wr"
 }
