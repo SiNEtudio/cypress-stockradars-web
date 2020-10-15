@@ -3,7 +3,7 @@
 describe("Login with 'Yuanta Securities'", () => {
   // beforeEach(() => {
   it("Should visit StockRadars Website (Broker Login)", () => {
-    cy.visit("https://stockradars.co/trade");
+    cy.visit("/trade/");
   });
 
   it("Should appear select broker dropdown", () => {

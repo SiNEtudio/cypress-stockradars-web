@@ -3,7 +3,7 @@
 describe("Login with 'Yuanta Securities'", () => {
   // beforeEach(() => {
   it("Should visit StockRadars Website (Broker Login)", () => {
-    cy.visit("https://stockradars.co/trade");
+    cy.visit("/trade/");
   });
 
   it("Should appear select broker dropdown", () => {
@@ -36,7 +36,48 @@ describe("Login with 'Yuanta Securities'", () => {
     });
   });
 
-  it("Should access all menu", () => {
+  it("Should access 'Market Mover' menu", () => {
     cy.get('[class="md-list-item-text"]').contains("Market Mover").click();
+
   });
+
+  it("Should access 'Radars' menu", () => {
+    cy.get('[class="md-list-item-text"]').contains("Radars").click();
+  });
+  
+  it("Should access 'Favorite' menu", () => {
+    cy.get('[class="md-list-item-text"]').contains("Favorite").click();
+  });
+  
+  it("Should access 'Trade' menu", () => {
+    cy.get('[class="md-list-item-text"]').contains("Trade").click();
+  });
+
+  it("Should access 'Portfolio' menu", () => {
+    cy.get('[class="md-list-item-text"]').contains("Portfolio").click();
+  });
+
+  it("Should access 'Ticker' menu", () => {
+    cy.get('[class="md-list-item-text"]').contains("Ticker").click();
+  });
+
+  it("Should access 'Alerts' menu", () => {
+    cy.get('[class="md-list-item-text"]').contains("Alerts").click();
+  });
+  
+  it("Should access 'Chart' menu", () => {
+    cy.get('[class="md-list-item-text"]').contains("Chart").click();
+  });
+
+  it("Should access 'Yuanta Service' menu", () => {
+    cy.get('[class="md-list-item-text"]').contains("Yuanta Service").click();
+  });
+
+  it("Should logout to landing page", () => {
+    cy.get('[class="md-list-item-text"]').contains("Logout").click();
+    cy.get('[class="_md md-default-theme md-transition-in"]')
+      .contains("YES")
+      .click();
+  });
+
 });
