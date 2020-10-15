@@ -4,3 +4,4 @@ debug.log
 cypress/videos/stockradars-web/
 cypress/videos/sine-first-test/
 cypress/fixtures/
+cypress/screenshots/
