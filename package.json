@@ -7,6 +7,7 @@
     "test": "test",
     "cy:run": "./node_modules/.bin/cypress open",
     "cy:report": "./node_modules/.bin/cypress run --record --key 645e726d-a509-4642-b28a-e0de2cf22c55",
+    "cy:install": "npm install --save --dev cypress",
     "remove-git-file": "git rm --cached mylogfile.log",
     "remove-git-directory": "git rm --cached -r mydirectory"
   },
@@ -25,6 +26,6 @@
   },
   "homepage": "https://github.com/SiNEtudio/cypress-stockradars-web#readme",
   "dependencies": {
-    "cypress": "^5.3.0"
+    "cypress": "^5.4.0"
   }
 }
