@@ -32,41 +32,68 @@ describe("Login with 'Yuanta Securities'", () => {
       cy.get('[class="blue md-button md-ink-ripple flex"]')
         .contains("เข้าสู่ระบบ")
         .click();
-      cy.get(".setindex-bar").contains("SET").click();
+      cy.server();
+      cy.route({
+        method: "POST",
+        url: "https://realtime.stockradars.co/setmds/pull",
+      }).as("getPull");
+      cy.wait("@getPull", { timeout: 15000 });
+      //cy.wait(5000);
+      cy.get(".setindex-bar").contains("SET");
     });
   });
 
   it("Should access 'Market Mover' menu", () => {
     cy.get('[class="md-list-item-text"]').contains("Market Mover").click();
-
+    cy.server();
+    //cy.route("**/trade/#/marketmover").as("gotoMarketMover");
+    cy.route({
+      method: "POST",
+      url: "https://realtime.stockradars.co/setmds/pull",
+    }).as("getPull");
+    cy.wait("@getPull", { timeout: 15000 });
   });
 
   it("Should access 'Radars' menu", () => {
     cy.get('[class="md-list-item-text"]').contains("Radars").click();
+    cy.server();
+    cy.route("**/trade/#/radars").as("gotoRadars");
   });
-  
+
   it("Should access 'Favorite' menu", () => {
     cy.get('[class="md-list-item-text"]').contains("Favorite").click();
+    cy.server();
+    cy.route("**/trade/#/favorite").as("gotoFavorite");
   });
-  
+
   it("Should access 'Trade' menu", () => {
     cy.get('[class="md-list-item-text"]').contains("Trade").click();
+    cy.server();
+    cy.route("**/trade/#/trade").as("gotoTrade");
   });
 
   it("Should access 'Portfolio' menu", () => {
     cy.get('[class="md-list-item-text"]').contains("Portfolio").click();
+    cy.server();
+    cy.route("**/trade/#/portfolio").as("gotoPortfolio");
   });
 
   it("Should access 'Ticker' menu", () => {
     cy.get('[class="md-list-item-text"]').contains("Ticker").click();
+    cy.server();
+    cy.route("**/trade/#/ticker").as("gotoTicker");
   });
 
   it("Should access 'Alerts' menu", () => {
     cy.get('[class="md-list-item-text"]').contains("Alerts").click();
+    cy.server();
+    cy.route("**/trade/#/alerts").as("gotoAlerts");
   });
-  
+
   it("Should access 'Chart' menu", () => {
     cy.get('[class="md-list-item-text"]').contains("Chart").click();
+    cy.server();
+    cy.route("**/trade/#/chart").as("gotoAlerts");
   });
 
   it("Should access 'Yuanta Service' menu", () => {
@@ -79,5 +106,4 @@ describe("Login with 'Yuanta Securities'", () => {
       .contains("YES")
       .click();
   });
-
 });
