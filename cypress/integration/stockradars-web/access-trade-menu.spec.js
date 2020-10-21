@@ -10,6 +10,7 @@ describe("Visit stockradars.co Website and access 'Trade' menu", () => {
   });
 
   it("Should click 'Login' Menu", () => {
-    cy.get("#navbarNavDropdown > ul > li:nth-child(7)").click();
+    //cy.get("#navbarNavDropdown > ul > li:nth-child(7)").click();
+    cy.get(":nth-child(7) > .nav-link").click(); //
   });
 });
