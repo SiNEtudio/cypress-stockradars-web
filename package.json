@@ -26,6 +26,6 @@
   },
   "homepage": "https://github.com/SiNEtudio/cypress-stockradars-web#readme",
   "dependencies": {
-    "cypress": "^5.4.0"
+    "cypress": "^5.5.0"
   }
 }
