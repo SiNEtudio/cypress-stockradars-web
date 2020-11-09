@@ -93,11 +93,15 @@ describe("Login with 'Yuanta Securities'", () => {
   it("Should access 'Chart' menu", () => {
     cy.get('[class="md-list-item-text"]').contains("Chart").click();
     cy.server();
-    cy.route("**/trade/#/chart").as("gotoAlerts");
+    cy.route("**/trade/#/chart").as("gotoChart");
   });
-
+  
   it("Should access 'Yuanta Service' menu", () => {
     cy.get('[class="md-list-item-text"]').contains("Yuanta Service").click();
+    cy.server();
+    cy.route("https://sso1.yuanta.co.th/ssomobile/Default.aspx").as("gotoYuantaService");
+    //cy.location('pathname').should('eq', 'https://sso1.yuanta.co.th/ssomobile/Default.aspx')
+    cy.get('a[href="https://itrade.yuanta.co.th/ytapi/login_eservice.aspx?txtParam=zvXFawGCze1A6EvA9vPsggq6hAy%2fcKagkHF09FEoMK6d8kbmb0bmwg%3d%3d"]').should('have.attr', 'target', '_blank')
   });
 
   it("Should logout to landing page", () => {
