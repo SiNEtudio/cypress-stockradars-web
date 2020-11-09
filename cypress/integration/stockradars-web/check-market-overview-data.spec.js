@@ -55,33 +55,43 @@ describe("Login with 'Yuanta Securities'", () => {
   });
 
   it("Should select 'Most Active Value' tab", () => {
-    cy.get('.md-active').contains("Most Active Value").click();
-    cy.get(':nth-child(2) > .text-left').should('have.length', 1);
+    cy.get(".md-active").contains("Most Active Value").click();
+    cy.get(":nth-child(2) > .text-left").should("have.length", 1);
   });
 
   it("Should select 'Most Active Volume' tab", () => {
-    cy.get('md-pagination-wrapper > [md-tab-id="6"]').contains("Most Active Volume").click();
-    cy.get(':nth-child(2) > .text-left').should('have.length', 1);
+    cy.get('md-pagination-wrapper > [md-tab-id="6"]')
+      .contains("Most Active Volume")
+      .click();
+    cy.get(":nth-child(2) > .text-left").should("have.length", 1);
   });
 
   it("Should select 'Top Gainer' tab", () => {
-    cy.get('md-pagination-wrapper > [md-tab-id="7"]').contains("Top Gainer").click();
-    cy.get(':nth-child(2) > .text-left').should('have.length', 1);
+    cy.get('md-pagination-wrapper > [md-tab-id="7"]')
+      .contains("Top Gainer")
+      .click();
+    cy.get(":nth-child(2) > .text-left").should("have.length", 1);
   });
 
   it("Should select 'Top Loser' tab", () => {
-    cy.get('md-pagination-wrapper > [md-tab-id="8"]').contains("Top Loser").click();
-    cy.get(':nth-child(2) > .text-left').should('have.length', 1);
+    cy.get('md-pagination-wrapper > [md-tab-id="8"]')
+      .contains("Top Loser")
+      .click();
+    cy.get(":nth-child(2) > .text-left").should("have.length", 1);
   });
 
   it("Should select 'Most Swing' tab", () => {
-    cy.get('md-pagination-wrapper > [md-tab-id="9"]').contains("Most Swing").click();
-    cy.get(':nth-child(2) > .text-left').should('have.length', 1);
+    cy.get('md-pagination-wrapper > [md-tab-id="9"]')
+      .contains("Most Swing")
+      .click();
+    cy.get(":nth-child(2) > .text-left").should("have.length", 1);
   });
 
   it("Should select 'Favorite' tab", () => {
-    cy.get('md-pagination-wrapper > [md-tab-id="10"]').contains("Favorite").click();
-    cy.get(':nth-child(2) > .text-left').should('have.length', 1);
+    cy.get('md-pagination-wrapper > [md-tab-id="10"]')
+      .contains("Favorite")
+      .click();
+    cy.get(":nth-child(2) > .text-left").should("have.length", 1);
   });
 
   // it("Should select 'Portfolio' tab", () => {
