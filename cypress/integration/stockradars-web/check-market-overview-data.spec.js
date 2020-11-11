@@ -94,10 +94,10 @@ describe("Login with 'Yuanta Securities'", () => {
     cy.get(":nth-child(2) > .text-left").should("have.length", 1);
   });
 
-  // it("Should select 'Portfolio' tab", () => {
-  //   cy.get('md-pagination-wrapper > [md-tab-id="10"]').contains("Portfolio").click();
-  //   cy.get(':nth-child(2) > .text-left').should('have.length', 1);
-  // });
+  it("Should select 'Portfolio' tab", () => {
+    cy.get('md-pagination-wrapper > [md-tab-id="11"]').contains("Portfolio").click();
+    //cy.get(':nth-child(2) > .text-left').should('have.length', 1);
+  });
 
   it("Should logout to landing page", () => {
     cy.get('[class="md-list-item-text"]').contains("Logout").click();
