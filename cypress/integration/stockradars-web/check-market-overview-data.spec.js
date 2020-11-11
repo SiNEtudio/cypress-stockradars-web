@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-describe("Login with 'Yuanta Securities'", () => {
+describe("Check data in 'Market Overview' tab", () => {
   // beforeEach(() => {
   it("Should visit StockRadars Website (Broker Login)", () => {
     cy.visit("/trade/");
@@ -95,7 +95,9 @@ describe("Login with 'Yuanta Securities'", () => {
   });
 
   it("Should select 'Portfolio' tab", () => {
-    cy.get('md-pagination-wrapper > [md-tab-id="11"]').contains("Portfolio").click();
+    cy.get('md-pagination-wrapper > [md-tab-id="11"]')
+      .contains("Portfolio")
+      .click();
     //cy.get(':nth-child(2) > .text-left').should('have.length', 1);
   });
 
