@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "cy:run": "./node_modules/.bin/cypress open",
+    "cy:open": "./node_modules/.bin/cypress open",
+    "cy:run": "./node_modules/.bin/cypress run",
+    "cy:run-chrome": "./node_modules/.bin/cypress run --browser chrome",
+    "cy:run-firefox": "./node_modules/.bin/cypress run --browser firefox",
+    "cy:run-edge": "./node_modules/.bin/cypress run --browser edge",
     "cy:report": "./node_modules/.bin/cypress run --record --key 645e726d-a509-4642-b28a-e0de2cf22c55",
     "cy:install": "npm install --save --dev cypress",
     "remove-git-file": "git rm --cached mylogfile.log",
