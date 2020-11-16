@@ -43,10 +43,24 @@ describe("Check data in 'Market Overview' tab", () => {
     });
   });
 
+  it("SET Index shouldn't equal to 0.00", () => {
+    cy.get(":nth-child(1) > .layout-align-center-end").should(
+      "not.have.value",
+      "0.00"
+    );
+  });
+
+  it("SET Volume shouldn't equal to 0.00", () => {
+    cy.get(".txt-padding-right").should("not.have.value", "0.00");
+  });
+
+  it("SET Value shouldn't equal to 0.00", () => {
+    cy.get(".layout-wrap > :nth-child(4)").should("not.have.value", "0.00");
+  });
+
   it("Should access 'Market Mover' menu", () => {
     cy.get('[class="md-list-item-text"]').contains("Market Mover").click();
     cy.server();
-    //cy.route("**/trade/#/marketmover").as("gotoMarketMover");
     cy.route({
       method: "POST",
       url: "https://realtime.stockradars.co/setmds/pull",
@@ -57,6 +71,15 @@ describe("Check data in 'Market Overview' tab", () => {
   it("Should select 'Most Active Value' tab", () => {
     cy.get(".md-active").contains("Most Active Value").click();
     cy.get(":nth-child(2) > .text-left").should("have.length", 1);
+    cy.get(
+    '[style=""] > [ng-click="trade(stock.name , stock.price)"]'
+  ).should("not.have.value", "0.00");
+    cy.get(
+    '[style=""] > [animate-on-change="stock.totalVolume"]'
+  ).should("not.have.value", "0.00");
+    cy.get(
+    '[style=""] > [animate-on-change="stock.totalValue"]'
+  ).should("not.have.value", "0.00");
   });
 
   it("Should select 'Most Active Volume' tab", () => {
@@ -64,6 +87,15 @@ describe("Check data in 'Market Overview' tab", () => {
       .contains("Most Active Volume")
       .click();
     cy.get(":nth-child(2) > .text-left").should("have.length", 1);
+    cy.get(
+      '[style=""] > [ng-click="trade(stock.name , stock.price)"]'
+    ).should("not.have.value", "0.00");
+      cy.get(
+      '[style=""] > [animate-on-change="stock.totalVolume"]'
+    ).should("not.have.value", "0.00");
+      cy.get(
+      '[style=""] > [animate-on-change="stock.totalValue"]'
+    ).should("not.have.value", "0.00");
   });
 
   it("Should select 'Top Gainer' tab", () => {
@@ -71,6 +103,15 @@ describe("Check data in 'Market Overview' tab", () => {
       .contains("Top Gainer")
       .click();
     cy.get(":nth-child(2) > .text-left").should("have.length", 1);
+    cy.get(
+      '[style=""] > [ng-click="trade(stock.name , stock.price)"]'
+    ).should("not.have.value", "0.00");
+      cy.get(
+      '[style=""] > [animate-on-change="stock.totalVolume"]'
+    ).should("not.have.value", "0.00");
+      cy.get(
+      '[style=""] > [animate-on-change="stock.totalValue"]'
+    ).should("not.have.value", "0.00");
   });
 
   it("Should select 'Top Loser' tab", () => {
@@ -78,6 +119,15 @@ describe("Check data in 'Market Overview' tab", () => {
       .contains("Top Loser")
       .click();
     cy.get(":nth-child(2) > .text-left").should("have.length", 1);
+    cy.get(
+      '[style=""] > [ng-click="trade(stock.name , stock.price)"]'
+    ).should("not.have.value", "0.00");
+      cy.get(
+      '[style=""] > [animate-on-change="stock.totalVolume"]'
+    ).should("not.have.value", "0.00");
+      cy.get(
+      '[style=""] > [animate-on-change="stock.totalValue"]'
+    ).should("not.have.value", "0.00");
   });
 
   it("Should select 'Most Swing' tab", () => {
@@ -85,6 +135,15 @@ describe("Check data in 'Market Overview' tab", () => {
       .contains("Most Swing")
       .click();
     cy.get(":nth-child(2) > .text-left").should("have.length", 1);
+    cy.get(
+      '[style=""] > [ng-click="trade(stock.name , stock.price)"]'
+    ).should("not.have.value", "0.00");
+      cy.get(
+      '[style=""] > [animate-on-change="stock.totalVolume"]'
+    ).should("not.have.value", "0.00");
+      cy.get(
+      '[style=""] > [animate-on-change="stock.totalValue"]'
+    ).should("not.have.value", "0.00");
   });
 
   it("Should select 'Favorite' tab", () => {
@@ -92,6 +151,15 @@ describe("Check data in 'Market Overview' tab", () => {
       .contains("Favorite")
       .click();
     cy.get(":nth-child(2) > .text-left").should("have.length", 1);
+    cy.get(
+      '[style=""] > [ng-click="trade(stock.name , stock.price)"]'
+    ).should("not.have.value", "0.00");
+      cy.get(
+      '[style=""] > [animate-on-change="stock.totalVolume"]'
+    ).should("not.have.value", "0.00");
+      cy.get(
+      '[style=""] > [animate-on-change="stock.totalValue"]'
+    ).should("not.have.value", "0.00");
   });
 
   it("Should select 'Portfolio' tab", () => {
