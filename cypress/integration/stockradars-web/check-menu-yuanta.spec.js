@@ -45,55 +45,48 @@ describe("Login with 'Yuanta Securities'", () => {
 
   it("Should access 'Market Mover' menu", () => {
     cy.get('[class="md-list-item-text"]').contains("Market Mover").click();
+    cy.url().should('eq', 'https://stockradars.co/trade/#/marketmover')
     cy.server();
-    //cy.route("**/trade/#/marketmover").as("gotoMarketMover");
-    cy.route({
-      method: "POST",
-      url: "https://realtime.stockradars.co/setmds/pull",
-    }).as("getPull");
-    cy.wait("@getPull", { timeout: 15000 });
+    // cy.route({
+    //   method: "POST",
+    //   url: "https://realtime.stockradars.co/setmds/pull",
+    // }).as("getPull");
+    // cy.wait("@getPull", { timeout: 15000 });
   });
-
+  
   it("Should access 'Radars' menu", () => {
     cy.get('[class="md-list-item-text"]').contains("Radars").click();
-    cy.server();
-    cy.route("**/trade/#/radars").as("gotoRadars");
+    cy.url().should('eq', 'https://stockradars.co/trade/#/radars')
   });
-
+  
   it("Should access 'Favorite' menu", () => {
     cy.get('[class="md-list-item-text"]').contains("Favorite").click();
-    cy.server();
-    cy.route("**/trade/#/favorite").as("gotoFavorite");
+    cy.url().should('eq', 'https://stockradars.co/trade/#/favorite')
   });
-
+  
   it("Should access 'Trade' menu", () => {
     cy.get('[class="md-list-item-text"]').contains("Trade").click();
-    cy.server();
-    cy.route("**/trade/#/trade").as("gotoTrade");
+    cy.url().should('eq', 'https://stockradars.co/trade/#/trade')
   });
-
+  
   it("Should access 'Portfolio' menu", () => {
     cy.get('[class="md-list-item-text"]').contains("Portfolio").click();
-    cy.server();
-    cy.route("**/trade/#/portfolio").as("gotoPortfolio");
+    cy.url().should('eq', 'https://stockradars.co/trade/#/portfolio')
   });
-
+  
   it("Should access 'Ticker' menu", () => {
     cy.get('[class="md-list-item-text"]').contains("Ticker").click();
-    cy.server();
-    cy.route("**/trade/#/ticker").as("gotoTicker");
+    cy.url().should('eq', 'https://stockradars.co/trade/#/ticker')
   });
-
+  
   it("Should access 'Alerts' menu", () => {
     cy.get('[class="md-list-item-text"]').contains("Alerts").click();
-    cy.server();
-    cy.route("**/trade/#/alerts").as("gotoAlerts");
+    cy.url().should('eq', 'https://stockradars.co/trade/#/alerts')
   });
-
+  
   it("Should access 'Chart' menu", () => {
     cy.get('[class="md-list-item-text"]').contains("Chart").click();
-    cy.server();
-    cy.route("**/trade/#/chart").as("gotoChart");
+    cy.url().should('eq', 'https://stockradars.co/trade/#/chart')
   });
   
   it("Should access 'Yuanta Service' menu", () => {
