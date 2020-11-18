@@ -46,12 +46,6 @@ describe("Login with 'Yuanta Securities'", () => {
   it("Should access 'Market Mover' menu", () => {
     cy.get('[class="md-list-item-text"]').contains("Market Mover").click();
     cy.url().should("eq", "https://stockradars.co/trade/#/marketmover");
-    cy.server();
-    // cy.route({
-    //   method: "POST",
-    //   url: "https://realtime.stockradars.co/setmds/pull",
-    // }).as("getPull");
-    // cy.wait("@getPull", { timeout: 15000 });
   });
 
   it("Should access 'Radars' menu", () => {
