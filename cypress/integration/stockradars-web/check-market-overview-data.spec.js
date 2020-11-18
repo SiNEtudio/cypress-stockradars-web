@@ -58,16 +58,6 @@ describe("Check data in 'Market Overview' tab", () => {
     cy.get(".layout-wrap > :nth-child(4)").should("not.have.value", "0.00");
   });
 
-  it("Should access 'Market Mover' menu", () => {
-    cy.get('[class="md-list-item-text"]').contains("Market Mover").click();
-    cy.server();
-    cy.route({
-      method: "POST",
-      url: "https://realtime.stockradars.co/setmds/pull",
-    }).as("getPull");
-    //cy.wait("@getPull", { timeout: 15000 });
-  });
-
   it("Should select 'Most Active Value' tab", () => {
     cy.get(".md-active").contains("Most Active Value").click();
     cy.get(":nth-child(2) > .text-left").should("have.length", 1);
