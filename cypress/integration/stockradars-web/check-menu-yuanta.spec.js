@@ -45,7 +45,7 @@ describe("Login with 'Yuanta Securities'", () => {
 
   it("Should access 'Market Mover' menu", () => {
     cy.get('[class="md-list-item-text"]').contains("Market Mover").click();
-    cy.url().should('eq', 'https://stockradars.co/trade/#/marketmover')
+    cy.url().should("eq", "https://stockradars.co/trade/#/marketmover");
     cy.server();
     // cy.route({
     //   method: "POST",
@@ -53,48 +53,81 @@ describe("Login with 'Yuanta Securities'", () => {
     // }).as("getPull");
     // cy.wait("@getPull", { timeout: 15000 });
   });
-  
+
   it("Should access 'Radars' menu", () => {
     cy.get('[class="md-list-item-text"]').contains("Radars").click();
-    cy.url().should('eq', 'https://stockradars.co/trade/#/radars')
+    cy.url().should("eq", "https://stockradars.co/trade/#/radars");
   });
-  
+
   it("Should access 'Favorite' menu", () => {
     cy.get('[class="md-list-item-text"]').contains("Favorite").click();
-    cy.url().should('eq', 'https://stockradars.co/trade/#/favorite')
+    cy.url().should("eq", "https://stockradars.co/trade/#/favorite");
   });
-  
   it("Should access 'Trade' menu", () => {
+    // Wait for the route aliased as 'getAccount' to respond
+    // without changing or stubbing its response
+    cy.server();
+    cy.route({
+      method: "POST",
+      url: "https://realtime.stockradars.co/setmds/pull",
+    }).as("getTrade");
+
+    cy.wait("@getTrade", { timeout: 15000 }).then((xhr) => {
+      // we can now access the low level xhr
+      // that contains the request body,
+      // response body, status, etc
+      return cy.get(".pg-loading-logo").should("not.exist");
+    });
+
     cy.get('[class="md-list-item-text"]').contains("Trade").click();
-    cy.url().should('eq', 'https://stockradars.co/trade/#/trade')
+    cy.url().should("eq", "https://stockradars.co/trade/#/trade");
   });
-  
+
   it("Should access 'Portfolio' menu", () => {
+    // Wait for the route aliased as 'getAccount' to respond
+    // without changing or stubbing its response
+    cy.server();
+    cy.route({
+      method: "POST",
+      url: "https://realtime.stockradars.co/setmds/pull",
+    }).as("getPortfolio");
+
+    cy.wait("@getPortfolio", { timeout: 15000 }).then((xhr) => {
+      // we can now access the low level xhr
+      // that contains the request body,
+      // response body, status, etc
+      return cy.get(".pg-loading-logo").should("not.exist");
+    });
+
     cy.get('[class="md-list-item-text"]').contains("Portfolio").click();
-    cy.url().should('eq', 'https://stockradars.co/trade/#/portfolio')
+    cy.url().should("eq", "https://stockradars.co/trade/#/portfolio");
   });
-  
+
   it("Should access 'Ticker' menu", () => {
     cy.get('[class="md-list-item-text"]').contains("Ticker").click();
-    cy.url().should('eq', 'https://stockradars.co/trade/#/ticker')
+    cy.url().should("eq", "https://stockradars.co/trade/#/ticker");
   });
-  
+
   it("Should access 'Alerts' menu", () => {
     cy.get('[class="md-list-item-text"]').contains("Alerts").click();
-    cy.url().should('eq', 'https://stockradars.co/trade/#/alerts')
+    cy.url().should("eq", "https://stockradars.co/trade/#/alerts");
   });
-  
+
   it("Should access 'Chart' menu", () => {
     cy.get('[class="md-list-item-text"]').contains("Chart").click();
-    cy.url().should('eq', 'https://stockradars.co/trade/#/chart')
+    cy.url().should("eq", "https://stockradars.co/trade/#/chart");
   });
-  
+
   it("Should access 'Yuanta Service' menu", () => {
     cy.get('[class="md-list-item-text"]').contains("Yuanta Service").click();
     cy.server();
-    cy.route("https://sso1.yuanta.co.th/ssomobile/Default.aspx").as("gotoYuantaService");
+    cy.route("https://sso1.yuanta.co.th/ssomobile/Default.aspx").as(
+      "gotoYuantaService"
+    );
     //cy.location('pathname').should('eq', 'https://sso1.yuanta.co.th/ssomobile/Default.aspx')
-    cy.get('a[href="https://itrade.yuanta.co.th/ytapi/login_eservice.aspx?txtParam=zvXFawGCze1A6EvA9vPsggq6hAy%2fcKagkHF09FEoMK6d8kbmb0bmwg%3d%3d"]').should('have.attr', 'target', '_blank')
+    cy.get(
+      'a[href="https://itrade.yuanta.co.th/ytapi/login_eservice.aspx?txtParam=zvXFawGCze1A6EvA9vPsggq6hAy%2fcKagkHF09FEoMK6d8kbmb0bmwg%3d%3d"]'
+    ).should("have.attr", "target", "_blank");
   });
 
   it("Should logout to landing page", () => {
