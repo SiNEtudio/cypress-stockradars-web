@@ -38,8 +38,8 @@ describe("Login with 'Globlex Securities'", () => {
         url: "https://realtime.stockradars.co/setmds/pull",
       }).as("getPull");
       cy.wait("@getPull", { timeout: 15000 });
-      //cy.wait(5000);
-      cy.get(".setindex-bar").contains("SET");
+
+      cy.get(".setindex-bar").should("contain", "SET");
     });
   });
 

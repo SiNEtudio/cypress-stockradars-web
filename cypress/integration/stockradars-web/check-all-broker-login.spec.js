@@ -256,7 +256,7 @@ describe(
         cy.get('[class="blue md-button md-ink-ripple flex"]')
           .contains("เข้าสู่ระบบ")
           .click();
-        cy.get(".setindex-bar").contains("SET");
+        cy.get(".setindex-bar").should("contain", "SET");
       });
     });
 

@@ -38,22 +38,26 @@ describe("Login with 'Yuanta Securities'", () => {
         url: "https://realtime.stockradars.co/setmds/pull",
       }).as("getPull");
       cy.wait("@getPull", { timeout: 15000 });
-      //cy.wait(5000);
-      cy.get(".setindex-bar").contains("SET");
+
+      cy.get(".setindex-bar").should("contain", "SET");
     });
   });
 
   it("Should access 'Yuanta Service' menu", () => {
     cy.get('[class="md-list-item-text"]').contains("Yuanta Service").click();
-    cy.url().should('eq', 'https://stockradars.co/trade/#/marketmover','target', '_blank')
+    cy.url().should(
+      "eq",
+      "https://stockradars.co/trade/#/marketmover",
+      "target",
+      "_blank"
+    );
     //y.get(':nth-child(9) > .menu-list > .md-2-line').eq('a[href="https://itrade.yuanta.co.th/ytapi/login_eservice.aspx?txtParam=zvXFawGCze1A6EvA9vPsggq6hAy%2fcKagkHF09FEoMK6d8kbmb0bmwg%3d%3d"]').should('have.attr','target','_blank')
-
 
     //   cy.server();
     //   cy.route("https://sso1.yuanta.co.th/ssomobile/Default.aspx").as("gotoYuantaService");
     //   //cy.location('pathname').should('eq', 'https://sso1.yuanta.co.th/ssomobile/Default.aspx')
     //cy.get('a[href="https://itrade.yuanta.co.th/ytapi/login_eservice.aspx?txtParam=zvXFawGCze1A6EvA9vPsggq6hAy%2fcKagkHF09FEoMK6d8kbmb0bmwg%3d%3d"]').should('have.attr', 'target', '_blank')
-    
+
     // cy.get("@redirect").should(
     //   "be.called",
     //   "_blank",
@@ -71,9 +75,6 @@ describe("Login with 'Yuanta Securities'", () => {
     //   .then(href => {
     //     cy.visit(href);
     //   });
-
-
-
   });
 
   it("Should logout to landing page", () => {
