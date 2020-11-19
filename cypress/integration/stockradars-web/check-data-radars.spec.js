@@ -2,18 +2,18 @@
 
 describe("Check data in 'Radars' menu", () => {
   // beforeEach(() => {
-  it("Should visit StockRadars Website (Broker Login)", () => {
+  it.only("Should visit StockRadars Website (Broker Login)", () => {
     cy.visit("/trade/");
   });
 
-  it("Should appear select broker dropdown", () => {
+  it.only("Should appear select broker dropdown", () => {
     cy.get('[class="blue md-button md-ink-ripple flex"]').should(
       "contain",
       "เลือกบริษัทหลักทรัพย์ที่นี่"
     );
   });
 
-  it("Should select 'Yuanta Securities' broker", () => {
+  it.only("Should select 'Yuanta Securities' broker", () => {
     cy.get('[class="blue md-button md-ink-ripple flex"]')
       .contains("เลือกบริษัทหลักทรัพย์ที่นี่")
       .click();
@@ -25,7 +25,7 @@ describe("Check data in 'Radars' menu", () => {
     );
   });
 
-  it("Should login when 'username and password are correct'", () => {
+  it.only("Should login when 'username and password are correct'", () => {
     cy.fixture("user/user-yuanta.json").then((user) => {
       cy.get("#input_1").clear().type(user.username); // Get data from {fixturesFolder}/users/user.json
       cy.get("#input_2").clear().type(user.password); // Get data from {fixturesFolder}/users/user.json
@@ -43,7 +43,7 @@ describe("Check data in 'Radars' menu", () => {
     });
   });
 
-  it("Should access 'Radars' menu", () => {
+  it.only("Should access 'Radars' menu", () => {
     cy.get('[class="md-list-item-text"]').contains("Radars").click();
     cy.url().should("eq", "https://stockradars.co/trade/#/radars");
   });
@@ -69,8 +69,15 @@ describe("Check data in 'Radars' menu", () => {
 
   it("Should show all lists of Radars", () => {
     //cy.wait(10000);
+    
+    cy.get(".headbar").should("have.length.gte", 8);
+  });
+  
+  it.only('Popular Radars :: Should show the list of Signals (at least 1 Signal)', () => {
+    cy.wait(15000);
 
-    cy.get(".headbar").should("have.length.lte", 15);
+    cy.get(":nth-child(1) > .row > :nth-child(2) > .text-center > .col-md-2 > .icon-onradars").should("have.length.gte", 1);
+    
   });
 
   it("Should logout to landing page", () => {
