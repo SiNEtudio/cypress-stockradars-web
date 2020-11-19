@@ -45,12 +45,13 @@ describe("Login with 'Yuanta Securities'", () => {
 
   it("Should access 'Yuanta Service' menu", () => {
     cy.get('[class="md-list-item-text"]').contains("Yuanta Service").click();
-    cy.url().should(
-      "eq",
-      "https://stockradars.co/trade/#/marketmover",
-      "target",
-      "_blank"
-    );
+    // cy.url().should(
+    //   "eq",
+    //   "https://stockradars.co/trade/#/marketmover",
+    //   "target",
+    //   "_blank"
+    // );
+
     //y.get(':nth-child(9) > .menu-list > .md-2-line').eq('a[href="https://itrade.yuanta.co.th/ytapi/login_eservice.aspx?txtParam=zvXFawGCze1A6EvA9vPsggq6hAy%2fcKagkHF09FEoMK6d8kbmb0bmwg%3d%3d"]').should('have.attr','target','_blank')
 
     //   cy.server();
@@ -75,6 +76,16 @@ describe("Login with 'Yuanta Securities'", () => {
     //   .then(href => {
     //     cy.visit(href);
     //   });
+
+    //cy.get('a').contains(" Yuanta Service ").should("have.attr","<p.ng-binding>","https://itrade.yuanta.co.th/ytapi/login_eservice.aspx?txtParam=zvXFawGCze1A6EvA9vPsggq6hAy%2fcKagkHF09FEoMK6d8kbmb0bmwg%3d%3d");
+
+    cy.get("a")
+      .contains(" Yuanta Service ")
+      .should(
+        "have.attr",
+        "href",
+        "hhttps://itrade.yuanta.co.th/ytapi/login_eservice.aspx?txtParam=zvXFawGCze1A6EvA9vPsggq6hAy%2fcKagkHF09FEoMK6d8kbmb0bmwg%3d%3d"
+      );
   });
 
   it("Should logout to landing page", () => {
