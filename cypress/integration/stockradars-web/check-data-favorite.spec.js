@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-describe("Check data in 'Radars' menu", () => {
+describe("Check data in 'Favorite' menu", () => {
   // beforeEach(() => {
   it("Should visit StockRadars Website (Broker Login)", () => {
     cy.visit("/trade/");
@@ -43,9 +43,9 @@ describe("Check data in 'Radars' menu", () => {
     });
   });
 
-  it("Should access 'Radars' menu", () => {
-    cy.get('[class="md-list-item-text"]').contains("Radars").click();
-    cy.url().should("eq", "https://stockradars.co/trade/#/radars");
+  it("Should access 'Favorite' menu", () => {
+    cy.get('[class="md-list-item-text"]').contains("Favorite").click();
+    cy.url().should("eq", "https://stockradars.co/trade/#/favorite");
   });
 
   it("SET Index shouldn't equal to 0.00", () => {
@@ -63,28 +63,49 @@ describe("Check data in 'Radars' menu", () => {
     cy.get(".layout-wrap > :nth-child(4)").should("not.have.value", "0.00");
   });
 
-  it("Should contain 'Radars' section", () => {
-    cy.get(".breadcrumb").should("contain", "Radars");
+  it("Should contain 'Delete Favorite' button", () => {
+    cy.get(".col-xs-12 > :nth-child(1) > .text-center").should(
+      "contain",
+      "Delete Favorite"
+    );
   });
 
-  it("Should show all lists of Radars", () => {
-    //cy.wait(10000);
-    
-    cy.get(".headbar").should("have.length.gte", 8);
+  it("Should contain 'Intraday Chart' section", () => {
+    cy.get(
+      "[ng-include=\"'views/component/chartIntraday.html'\"] > .box > .headbar"
+    ).should("contain", "Intraday Chart");
   });
-  
-  // it('Popular Radars :: Should show the list of Signals (at least 1 Signal)', () => {
-    //   //cy.wait(15000);
-    
-    //   cy.get(":nth-child(1) > .row > :nth-child(2) > .text-center > .col-md-2").should("have.length.gte", 1);
-    
-    // });
-    
-    // it("[Popular Radars] Should show correct Signals", () => {
-    //   cy.wait(10000);
-    //   cy.get(".radars-name").contains("5m Price Gainers").click();
-    // });
-    
+
+  it("Should contain 'Bid / Offer' section", () => {
+    cy.get(
+      "[ng-include=\"'views/component/bidoffer.html'\"] > .ng-scope > .box > .headbar"
+    ).should("contain", "Bid / Offer");
+  });
+
+  it("Should contain 'Intraday Information' section", () => {
+    cy.get(
+      "[ng-include=\"'views/component/intraday.html'\"] > .box > .headbar"
+    ).should("contain", "Intraday Information");
+  });
+
+  it("Should contain 'Last Executed' section", () => {
+    cy.get(
+      ":nth-child(5) > .box > .headbar"
+    ).should("contain", "Last Executed");
+  });
+
+  it("Should contain 'Buy / Sell Volume' section", () => {
+    cy.get(
+      "[ng-include=\"'views/component/chartBuySellVolume.html'\"] > .box > .headbar"
+    ).should("contain", "Buy / Sell Volume");
+  });
+
+  it("Should contain 'Price Visualizer' section", () => {
+    cy.get(
+      ":nth-child(7) > .box > .headbar"
+    ).should("contain", "Price Visualizer");
+  });
+
   it("Should logout to landing page", () => {
     cy.get('[class="md-list-item-text"]').contains("Logout").click();
     cy.get('[class="_md md-default-theme md-transition-in"]')
