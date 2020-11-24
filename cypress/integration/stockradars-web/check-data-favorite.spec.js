@@ -49,7 +49,7 @@ describe("Check data in 'Favorite' menu", () => {
   });
 
   it("SET Index shouldn't equal to 0.00", () => {
-    cy.get(":nth-child(1) > .layout-align-center-end").should(
+    cy.get(".setindex-bar > :nth-child(1) > .layout-align-center-end").should(
       "not.have.value",
       "0.00"
     );
