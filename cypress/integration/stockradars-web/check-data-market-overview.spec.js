@@ -57,7 +57,23 @@ describe("Check data in 'Market Overview' menu", () => {
     cy.get(".layout-wrap > :nth-child(4)").should("not.have.value", "0.00");
   });
 
+  it("Should display 'Stock Column' completely", () => {
+    cy.get("td").eq(0).should("contain", "Symbol");
+    cy.get("td").eq(1).should("contain", "Last");
+    cy.get("td").eq(2).should("contain", "Vol");
+    cy.get("td").eq(3).should("contain", "Bid");
+    cy.get("td").eq(4).should("contain", "Offer");
+    cy.get("td").eq(5).should("contain", "Vol");
+    cy.get("td").eq(6).should("contain", "Chg");
+    cy.get("td").eq(7).should("contain", "%Chg");
+    cy.get("td").eq(8).should("contain", "High");
+    cy.get("td").eq(9).should("contain", "Low");
+    cy.get("td").eq(10).should("contain", "Vol");
+    cy.get("td").eq(11).should("contain", "Val");
+  });
+
   it("Should select 'Most Active Value' tab", () => {
+    //cy.wait(500)
     cy.get(".md-active").contains("Most Active Value").click();
     cy.get(":nth-child(2) > .text-left").should("have.length", 1);
     cy.get('[style=""] > [ng-click="trade(stock.name , stock.price)"]').should(
@@ -75,6 +91,7 @@ describe("Check data in 'Market Overview' menu", () => {
   });
 
   it("Should select 'Most Active Volume' tab", () => {
+    //cy.wait(500)
     cy.get('md-pagination-wrapper > [md-tab-id="6"]')
       .contains("Most Active Volume")
       .click();
