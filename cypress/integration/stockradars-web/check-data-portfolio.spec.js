@@ -49,7 +49,7 @@ describe("Check data in 'Portfolio' menu", () => {
     // }).as("getYTUser");
     // cy.wait("@getYTUser", { timeout: 15000 });
 
-    cy.wait(21000);
+    cy.wait(25000);
     cy.get('[class="md-list-item-text"]').contains("Portfolio").click();
     cy.url().should("eq", "https://stockradars.co/trade/#/portfolio");
   });
@@ -114,16 +114,16 @@ describe("Check data in 'Portfolio' menu", () => {
     cy.get("td").eq(10).should("contain", "Realized P/L");
   });
 
-  it("Should contain 'Last Executed' section", () => {
-    cy.get(
-      "[ng-include=\"'views/component/lastExecuted.html'\"] > .box > .headbar"
-    ).should("contain", "Last Executed");
-  });
-
-  // it("Should logout to landing page", () => {
-  //   cy.get('[class="md-list-item-text"]').contains("Logout").click();
-  //   cy.get('[class="_md md-default-theme md-transition-in"]')
-  //     .contains("YES")
-  //     .click();
+  // it("Should contain 'Last Executed' section", () => {
+  //   cy.get(
+  //     "[ng-include=\"'views/component/lastExecuted.html'\"] > .box > .headbar"
+  //   ).should("contain", "Last Executed");
   // });
+
+  it("Should logout to landing page", () => {
+    cy.get('[class="md-list-item-text"]').contains("Logout").click();
+    cy.get('[class="_md md-default-theme md-transition-in"]')
+      .contains("YES")
+      .click();
+  });
 });
