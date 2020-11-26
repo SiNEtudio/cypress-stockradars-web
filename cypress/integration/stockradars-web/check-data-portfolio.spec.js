@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-describe("Check data in 'Trade' menu", () => {
+describe("Check data in 'Portfolio' menu", () => {
   // beforeEach(() => {
   it("Should visit StockRadars Website (Broker Login)", () => {
     cy.visit("/trade/");
@@ -49,6 +49,7 @@ describe("Check data in 'Trade' menu", () => {
     // }).as("getYTUser");
     // cy.wait("@getYTUser", { timeout: 15000 });
 
+    cy.wait(15000);
     cy.get('[class="md-list-item-text"]').contains("Portfolio").click();
     cy.url().should("eq", "https://stockradars.co/trade/#/portfolio");
   });
@@ -99,33 +100,19 @@ describe("Check data in 'Trade' menu", () => {
     );
   });
 
-  it("Should display 'Trade Box' completely", () => {
-    cy.get("[ng-class=\"{'green1 ' : ui.state == 'B'}\"] > a").should(
-      "contain",
-      "BUY"
-    );
-
-    cy.get("[ng-class=\"{'red1 ' : ui.state == 'S'}\"] > a").should(
-      "contain",
-      "SELL"
-    );
-
-    cy.get('[class="ng-pristine ng-valid ng-valid-required ng-valid-minlength ng-valid-maxlength"]').within(() => {
-      cy.get("input:first").should(
-        "have.attr","placeholder",
-        "Search"
-      );
-
-    })
+  it("Should display 'Stock Column' completely", () => {
+    cy.get("td").eq(0).should("contain", "Symbol");
+    cy.get("td").eq(1).should("contain", " "); // This column for display 'Flag' in some stock
+    cy.get("td").eq(2).should("contain", "Onhand");
+    cy.get("td").eq(3).should("contain", "Sellable");
+    cy.get("td").eq(4).should("contain", "Avg");
+    cy.get("td").eq(5).should("contain", "Last");
+    cy.get("td").eq(6).should("contain", "Cost");
+    cy.get("td").eq(7).should("contain", "Market Value");
+    cy.get("td").eq(8).should("contain", "Unrealized P/L");
+    cy.get("td").eq(9).should("contain", "%Unrealized P/L");
+    cy.get("td").eq(10).should("contain", "Realized P/L");
   });
-
-  // it("Should display 'BUY' side was correct 'Green'", () => {
-  //   cy.get("[ng-class=\"{'green1 ' : ui.state == 'B'}\"]").click();
-  // });
-
-  // it("Should display 'Stock Information' correctly", () => {
-  //   cy.get("#input-32").type("BDMS");
-  // });
 
   it("Should contain 'Last Executed' section", () => {
     cy.get(
@@ -133,10 +120,10 @@ describe("Check data in 'Trade' menu", () => {
     ).should("contain", "Last Executed");
   });
 
-  it("Should logout to landing page", () => {
-    cy.get('[class="md-list-item-text"]').contains("Logout").click();
-    cy.get('[class="_md md-default-theme md-transition-in"]')
-      .contains("YES")
-      .click();
-  });
+  // it("Should logout to landing page", () => {
+  //   cy.get('[class="md-list-item-text"]').contains("Logout").click();
+  //   cy.get('[class="_md md-default-theme md-transition-in"]')
+  //     .contains("YES")
+  //     .click();
+  // });
 });
