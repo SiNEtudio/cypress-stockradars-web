@@ -111,9 +111,9 @@ describe("Login with 'Yuanta Securities'", () => {
 
   it("Should access 'Yuanta Service' menu", () => {
     cy.get('[class="md-list-item-text"]').contains("Yuanta Service").click();
-    cy.intercept({"https://sso1.yuanta.co.th/ssomobile/Default.aspx").as(
-      "gotoYuantaService"
-    );
+    cy.intercept({
+      url: "https://sso1.yuanta.co.th/ssomobile/Default.aspx",
+    }).as("gotoYuantaService");
     //cy.location('pathname').should('eq', 'https://sso1.yuanta.co.th/ssomobile/Default.aspx')
     cy.get(
       'a[href="https://itrade.yuanta.co.th/ytapi/login_eservice.aspx?txtParam=zvXFawGCze1A6EvA9vPsggq6hAy%2fcKagkHF09FEoMK6d8kbmb0bmwg%3d%3d"]'
