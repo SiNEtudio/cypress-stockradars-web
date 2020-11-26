@@ -32,8 +32,7 @@ describe("Login with 'Globlex Securities'", () => {
       cy.get('[class="blue md-button md-ink-ripple flex"]')
         .contains("เข้าสู่ระบบ")
         .click();
-      cy.server();
-      cy.route({
+      cy.intercept({
         method: "POST",
         url: "https://realtime.stockradars.co/setmds/pull",
       }).as("getPull");
