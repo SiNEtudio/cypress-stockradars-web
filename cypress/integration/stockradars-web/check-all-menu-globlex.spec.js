@@ -67,7 +67,7 @@ describe("Login with 'Globlex Securities'", () => {
     // without changing or stubbing its response
     cy.intercept({
       method: "POST",
-      url: "https://realtime.stockradars.co/setmds/pull",
+      url: "https://realtime.stockradars.co/setmds/pull"
     }).as("getTrade");
 
     cy.wait("@getTrade", { timeout: 15000 }).then((xhr) => {
@@ -86,7 +86,7 @@ describe("Login with 'Globlex Securities'", () => {
     // without changing or stubbing its response
     cy.intercept({
       method: "POST",
-      url: "https://realtime.stockradars.co/setmds/pull",
+      url: "https://realtime.stockradars.co/setmds/pull"
     }).as("getPortfolio");
 
     cy.wait("@getPortfolio", { timeout: 15000 }).then((xhr) => {
@@ -125,11 +125,6 @@ describe("Login with 'Globlex Securities'", () => {
       'a[href="https://itrade.yuanta.co.th/ytapi/login_eservice.aspx?txtParam=zvXFawGCze1A6EvA9vPsggq6hAy%2fcKagkHF09FEoMK6d8kbmb0bmwg%3d%3d"]'
     ).should("have.attr", "target", "_blank");
   });
-
-  cy.intercept({
-    method: "POST",
-    url: "https://realtime.stockradars.co/setmds/pull",
-  }).as("getPortfolio");
 
   it("Should logout to landing page", () => {
     cy.get('[class="md-list-item-text"]').contains("Logout").click();
