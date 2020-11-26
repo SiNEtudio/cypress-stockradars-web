@@ -61,7 +61,7 @@ describe("Login with 'Yuanta Securities'", () => {
     // without changing or stubbing its response
     cy.intercept({
       method: "POST",
-      url: "https://realtime.stockradars.co/setmds/pull",
+      url: "https://realtime.stockradars.co/setmds/pull"
     }).as("getTrade");
 
     cy.wait("@getTrade", { timeout: 15000 }).then((xhr) => {
@@ -80,7 +80,7 @@ describe("Login with 'Yuanta Securities'", () => {
     // without changing or stubbing its response
     cy.intercept({
       method: "POST",
-      url: "https://realtime.stockradars.co/setmds/pull",
+      url: "https://realtime.stockradars.co/setmds/pull"
     }).as("getPortfolio");
 
     cy.wait("@getPortfolio", { timeout: 15000 }).then((xhr) => {
