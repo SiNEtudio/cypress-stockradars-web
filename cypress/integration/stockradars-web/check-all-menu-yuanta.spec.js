@@ -59,8 +59,7 @@ describe("Login with 'Yuanta Securities'", () => {
   it("Should access 'Trade' menu", () => {
     // Wait for the route aliased as 'getAccount' to respond
     // without changing or stubbing its response
-    cy.server();
-    cy.route({
+    cy.intercept({
       method: "POST",
       url: "https://realtime.stockradars.co/setmds/pull",
     }).as("getTrade");
@@ -79,8 +78,7 @@ describe("Login with 'Yuanta Securities'", () => {
   it("Should access 'Portfolio' menu", () => {
     // Wait for the route aliased as 'getAccount' to respond
     // without changing or stubbing its response
-    cy.server();
-    cy.route({
+    cy.intercept({
       method: "POST",
       url: "https://realtime.stockradars.co/setmds/pull",
     }).as("getPortfolio");
@@ -113,8 +111,7 @@ describe("Login with 'Yuanta Securities'", () => {
 
   it("Should access 'Yuanta Service' menu", () => {
     cy.get('[class="md-list-item-text"]').contains("Yuanta Service").click();
-    cy.server();
-    cy.route("https://sso1.yuanta.co.th/ssomobile/Default.aspx").as(
+    cy.intercept({"https://sso1.yuanta.co.th/ssomobile/Default.aspx").as(
       "gotoYuantaService"
     );
     //cy.location('pathname').should('eq', 'https://sso1.yuanta.co.th/ssomobile/Default.aspx')
