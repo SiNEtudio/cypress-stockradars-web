@@ -43,6 +43,7 @@ describe("Check data in 'Radars' menu", () => {
   });
 
   it("Should access 'Radars' menu", () => {
+    cy.wait(22000)
     cy.get('[class="md-list-item-text"]').contains("Radars").click();
     cy.url().should("eq", "https://stockradars.co/trade/#/radars");
   });
@@ -67,7 +68,7 @@ describe("Check data in 'Radars' menu", () => {
   });
 
   it("Should show all lists of Radars", () => {
-    //cy.wait(10000);
+    cy.wait(20000);
     
     cy.get(".headbar").should("have.length.gte", 8);
   });

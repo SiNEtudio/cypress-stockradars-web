@@ -49,7 +49,7 @@ describe("Check data in 'Portfolio' menu", () => {
     // }).as("getYTUser");
     // cy.wait("@getYTUser", { timeout: 15000 });
 
-    cy.wait(15000);
+    cy.wait(21000);
     cy.get('[class="md-list-item-text"]').contains("Portfolio").click();
     cy.url().should("eq", "https://stockradars.co/trade/#/portfolio");
   });

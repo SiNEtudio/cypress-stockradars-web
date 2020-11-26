@@ -48,7 +48,7 @@ describe("Check data in 'Trade' menu", () => {
     //   url: "https://itrade.yuanta.co.th/ytapi/get_cust_account.aspx",
     // }).as("getYTUser");
     // cy.wait("@getYTUser", { timeout: 15000 });
-
+    cy.wait(21000);
     cy.get('[class="md-list-item-text"]').contains("Trade").click();
     cy.url().should("eq", "https://stockradars.co/trade/#/trade");
   });
@@ -110,13 +110,11 @@ describe("Check data in 'Trade' menu", () => {
       "SELL"
     );
 
-    cy.get('[class="ng-pristine ng-valid ng-valid-required ng-valid-minlength ng-valid-maxlength"]').within(() => {
-      cy.get("input:first").should(
-        "have.attr","placeholder",
-        "Search"
-      );
-
-    })
+    cy.get(
+      '[class="ng-pristine ng-valid ng-valid-required ng-valid-minlength ng-valid-maxlength"]'
+    ).within(() => {
+      cy.get("input:first").should("have.attr", "placeholder", "Search");
+    });
   });
 
   // it("Should display 'BUY' side was correct 'Green'", () => {
