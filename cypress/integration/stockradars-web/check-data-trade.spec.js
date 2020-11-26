@@ -48,7 +48,7 @@ describe("Check data in 'Trade' menu", () => {
     //   url: "https://itrade.yuanta.co.th/ytapi/get_cust_account.aspx",
     // }).as("getYTUser");
     // cy.wait("@getYTUser", { timeout: 15000 });
-    cy.wait(21000);
+    cy.wait(25000);
     cy.get('[class="md-list-item-text"]').contains("Trade").click();
     cy.url().should("eq", "https://stockradars.co/trade/#/trade");
   });
