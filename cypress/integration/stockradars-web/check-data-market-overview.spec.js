@@ -193,10 +193,10 @@ describe("Check data in 'Market Overview' menu", () => {
     //cy.get(':nth-child(2) > .text-left').should('have.length', 1);
   });
 
-  it("Should logout to landing page", () => {
-    cy.get('[class="md-list-item-text"]').contains("Logout").click();
-    cy.get('[class="_md md-default-theme md-transition-in"]')
-      .contains("YES")
-      .click();
-  });
+  // it("Should logout to landing page", () => {
+  //   cy.get('[class="md-list-item-text"]').contains("Logout").click();
+  //   cy.get('[class="_md md-default-theme md-transition-in"]')
+  //     .contains("YES")
+  //     .click();
+  // });
 });

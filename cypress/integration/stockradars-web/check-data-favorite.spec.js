@@ -43,6 +43,7 @@ describe("Check data in 'Favorite' menu", () => {
   });
 
   it("Should access 'Favorite' menu", () => {
+    cy.wait(21000)
     cy.get('[class="md-list-item-text"]').contains("Favorite").click();
     cy.url().should("eq", "https://stockradars.co/trade/#/favorite");
   });
@@ -105,10 +106,10 @@ describe("Check data in 'Favorite' menu", () => {
     ).should("contain", "Price Visualizer");
   });
 
-  it("Should logout to landing page", () => {
-    cy.get('[class="md-list-item-text"]').contains("Logout").click();
-    cy.get('[class="_md md-default-theme md-transition-in"]')
-      .contains("YES")
-      .click();
-  });
+  // it("Should logout to landing page", () => {
+  //   cy.get('[class="md-list-item-text"]').contains("Logout").click();
+  //   cy.get('[class="_md md-default-theme md-transition-in"]')
+  //     .contains("YES")
+  //     .click();
+  // });
 });

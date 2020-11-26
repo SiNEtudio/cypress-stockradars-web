@@ -85,10 +85,10 @@ describe("Check data in 'Radars' menu", () => {
     //   cy.get(".radars-name").contains("5m Price Gainers").click();
     // });
     
-  it("Should logout to landing page", () => {
-    cy.get('[class="md-list-item-text"]').contains("Logout").click();
-    cy.get('[class="_md md-default-theme md-transition-in"]')
-      .contains("YES")
-      .click();
-  });
+  // it("Should logout to landing page", () => {
+  //   cy.get('[class="md-list-item-text"]').contains("Logout").click();
+  //   cy.get('[class="_md md-default-theme md-transition-in"]')
+  //     .contains("YES")
+  //     .click();
+  // });
 });

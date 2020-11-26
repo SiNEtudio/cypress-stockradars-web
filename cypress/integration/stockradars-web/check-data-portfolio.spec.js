@@ -49,7 +49,7 @@ describe("Check data in 'Portfolio' menu", () => {
     // }).as("getYTUser");
     // cy.wait("@getYTUser", { timeout: 15000 });
 
-    cy.wait(25000);
+    cy.wait(28000);
     cy.get('[class="md-list-item-text"]').contains("Portfolio").click();
     cy.url().should("eq", "https://stockradars.co/trade/#/portfolio");
   });
@@ -119,11 +119,24 @@ describe("Check data in 'Portfolio' menu", () => {
   //     "[ng-include=\"'views/component/lastExecuted.html'\"] > .box > .headbar"
   //   ).should("contain", "Last Executed");
   // });
-
-  it("Should logout to landing page", () => {
-    cy.get('[class="md-list-item-text"]').contains("Logout").click();
-    cy.get('[class="_md md-default-theme md-transition-in"]')
-      .contains("YES")
-      .click();
+  it("Should display 'Stock Column' completely", () => {
+    cy.get("td").eq(0).should("contain", "Symbol");
+    cy.get("td").eq(1).should("contain", " "); // This column for display 'Flag' in some stock
+    cy.get("td").eq(2).should("contain", "Onhand");
+    cy.get("td").eq(3).should("contain", "Sellable");
+    cy.get("td").eq(4).should("contain", "Avg");
+    cy.get("td").eq(5).should("contain", "Last");
+    cy.get("td").eq(6).should("contain", "Cost");
+    cy.get("td").eq(7).should("contain", "Market Value");
+    cy.get("td").eq(8).should("contain", "Unrealized P/L");
+    cy.get("td").eq(9).should("contain", "%Unrealized P/L");
+    cy.get("td").eq(10).should("contain", "Realized P/L");
   });
+
+  // it("Should logout to landing page", () => {
+  //   cy.get('[class="md-list-item-text"]').contains("Logout").click();
+  //   cy.get('[class="_md md-default-theme md-transition-in"]')
+  //     .contains("YES")
+  //     .click();
+  // });
 });
