@@ -49,7 +49,7 @@ describe("Check data in 'Portfolio' menu", () => {
     // }).as("getYTUser");
     // cy.wait("@getYTUser", { timeout: 15000 });
 
-    cy.wait(28000);
+    cy.wait(10000);
     cy.get('[class="md-list-item-text"]').contains("Portfolio").click();
     cy.url().should("eq", "https://stockradars.co/trade/#/portfolio");
   });
@@ -67,6 +67,11 @@ describe("Check data in 'Portfolio' menu", () => {
 
   it("SET Value shouldn't equal to 0.00", () => {
     cy.get(".layout-wrap > :nth-child(4)").should("not.have.value", "0.00");
+  });
+
+  it('Should display 2 segment (Portfolio & Order Status)', () => {
+    cy.get('li a').eq(0).should("have.attr","href","#portfolio", "contain","Portfolio")
+    cy.get('li a').eq(1).should("have.attr","href","#orderstatus", "contain", "Order Status")
   });
 
   it("Should display 'Account Information' correctly", () => {
@@ -119,18 +124,21 @@ describe("Check data in 'Portfolio' menu", () => {
   //     "[ng-include=\"'views/component/lastExecuted.html'\"] > .box > .headbar"
   //   ).should("contain", "Last Executed");
   // });
-  it("Should display 'Stock Column' completely", () => {
-    cy.get("td").eq(0).should("contain", "Symbol");
-    cy.get("td").eq(1).should("contain", " "); // This column for display 'Flag' in some stock
-    cy.get("td").eq(2).should("contain", "Onhand");
-    cy.get("td").eq(3).should("contain", "Sellable");
-    cy.get("td").eq(4).should("contain", "Avg");
-    cy.get("td").eq(5).should("contain", "Last");
-    cy.get("td").eq(6).should("contain", "Cost");
-    cy.get("td").eq(7).should("contain", "Market Value");
-    cy.get("td").eq(8).should("contain", "Unrealized P/L");
-    cy.get("td").eq(9).should("contain", "%Unrealized P/L");
-    cy.get("td").eq(10).should("contain", "Realized P/L");
+
+  it("Should display 'Portfolio Summary' completely", () => {
+    cy.get(':nth-child(2) > .headbar').should("contain","Total (THB)")
+    cy.get("td").eq(11).should("contain", "Amount");
+    cy.get("td").eq(12).should("not.have.value","null");
+    cy.get("td").eq(13).should("contain", "Mkt Val");
+    cy.get("td").eq(14).should("not.have.value","null");
+    cy.get("td").eq(15).should("contain", "Unrealized");
+    cy.get("td").eq(16).should("not.have.value","null","contain"," (%)");
+    cy.get("td").eq(17).should("contain", "Realized");
+    cy.get("td").eq(18).should("not.have.value","null");
+    cy.get("td").eq(19).should("contain", "Mkt Val", "not.have.value","null");
+    cy.get("td").eq(20).should("not.have.value","null");
+    cy.get("td").eq(21).should("contain", "Unrealized");
+    cy.get("td").eq(22).should("not.have.value","null","contain"," (%)");
   });
 
   // it("Should logout to landing page", () => {
