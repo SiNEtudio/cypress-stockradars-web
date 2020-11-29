@@ -74,6 +74,23 @@ describe("Check data in 'Favorite' menu", () => {
     );
   });
 
+  it("Should add new Radars (BDMS)", () => {
+    cy.get(".txt-add-list").contains("Add a new Alert").click();
+    cy.get("#input-12").type("BDMS{enter}");
+    cy.get(".pull-right").click();
+    cy.get(
+      ":nth-child(1) > .alert-box > :nth-child(2) > .col-xs-8 > .form-control"
+    ).type("0.1");
+    cy.get(
+      ":nth-child(2) > .alert-box > :nth-child(2) > .col-xs-8 > .form-control"
+    ).type("1");
+    cy.get(
+      ":nth-child(3) > .alert-box > :nth-child(2) > .col-xs-8 > .form-control"
+    ).type("1");
+    cy.get(":nth-child(2) > .btn").should("contain", "Done").click();
+    cy.get(".add-list").should("contain","BDMS");
+  });
+
   // it("Should logout to landing page", () => {
   //   cy.get('[class="md-list-item-text"]').contains("Logout").click();
   //   cy.get('[class="_md md-default-theme md-transition-in"]')
