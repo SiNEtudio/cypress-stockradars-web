@@ -48,9 +48,8 @@ describe("Check data in 'Chart' menu", () => {
     cy.url().should("eq", "https://stockradars.co/trade/#/chart");
   });
 
-  it('Should display TradingView', () => {
-    cy.get('.symbol-edit-inputspacer').should("contain","SET");
-    
+  it("Should display TradingView", () => {
+    cy.get("#tv_chart_container").should("contain", "SET");
   });
 
   // it("Should logout to landing page", () => {
