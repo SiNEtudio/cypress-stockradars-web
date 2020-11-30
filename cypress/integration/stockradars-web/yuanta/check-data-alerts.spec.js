@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-describe("Check data in 'Favorite' menu", () => {
+describe("Check data in 'Alerts' menu", () => {
   // beforeEach(() => {
   it("Should visit StockRadars Website (Broker Login)", () => {
     cy.visit("/trade/");
