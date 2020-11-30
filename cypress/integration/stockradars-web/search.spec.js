@@ -40,6 +40,7 @@ describe("Check data in 'Search' menu", () => {
 
       cy.get(".setindex-bar").should("contain", "SET");
     });
+    cy.wait(15000);
   });
 
   it("[BDMS] Should search stock and display stock data correctly", () => {
@@ -196,8 +197,465 @@ describe("Check data in 'Search' menu", () => {
       "null"
     );
   });
+  
+  it("[MINT] Should search stock and display stock data correctly", () => {
+    cy.get("#input-4").type("MINT{enter}");
+    cy.url().should(
+      "eq",
+      "https://stockradars.co/trade/#/realtime?symbol=MINT"
+    );
 
+    cy.get(".layout-align-center-start > .ng-binding").should(
+      "contain",
+      "MINT"
+    );
 
+    cy.get(":nth-child(3) > .layout-align-start-stretch > .ng-binding").should(
+      "contain",
+      "MINOR INTERNATIONAL PUBLIC COMPANY"
+    );
+
+    cy.get(
+      "[ng-include=\"'views/component/stockPrice.html'\"] > div.ng-scope > .md-padding > :nth-child(1) > .layout-align-center-end"
+    ).should("not.have.value", "0.00");
+    cy.get(
+      "[ng-include=\"'views/component/stockPrice.html'\"] > div.ng-scope > .md-padding > :nth-child(1) > .layout-align-center-end"
+    ).should("not.have.value", "null");
+    cy.get(
+      "[ng-include=\"'views/component/stockPrice.html'\"] > div.ng-scope > .md-padding > :nth-child(1) > .layout-align-center-end"
+    ).should("not.have.value", "null");
+
+    cy.get(".col-md-8 > :nth-child(1) > .box > .headbar").should(
+      "contain",
+      "Candlestick Chart"
+    );
+    cy.get("#highcharts-22 > svg > .highcharts-background").should(
+      "not.have.value",
+      "null"
+    );
+
+    cy.get(".col-md-6.ng-scope > .box > .headbar").should(
+      "contain",
+      "Intraday Chart"
+    );
+    cy.get("#highcharts-49 > svg > .highcharts-background").should(
+      "not.have.value",
+      "null"
+    );
+
+    cy.get(
+      "[ng-include=\"'views/component/lastExecuted.html'\"] > .box > .headbar"
+    ).should("contain", "Last Executed");
+    cy.get(".box > :nth-child(2) > .ng-binding").should(
+      "not.have.value",
+      "null"
+    );
+    cy.get(":nth-child(2) > .layout-align-center-center").should(
+      "not.have.value",
+      "null"
+    );
+    cy.get(
+      "[ng-include=\"'views/component/lastExecuted.html'\"] > .box > :nth-child(2) > :nth-child(3)"
+    ).should("not.have.value", "null");
+    cy.get(":nth-child(2) > .blue_text.layout-align-end-center").should(
+      "not.have.value",
+      "null"
+    );
+    cy.get(":nth-child(2) > .red1_text.layout-align-end-center").should(
+      "not.have.value",
+      "null"
+    );
+
+    cy.get(
+      "[ng-include=\"'views/component/intraday.html'\"] > .box > .headbar"
+    ).should("contain", "Intraday Information");
+    cy.get("td").eq(0).should("contain", "High");
+    cy.get("td").eq(1).should("not.have.value", "null");
+    cy.get("td").eq(2).should("contain", "Open1");
+    cy.get("td").eq(3).should("not.have.value", "null");
+    cy.get("td").eq(4).should("contain", "Low");
+    cy.get("td").eq(5).should("not.have.value", "null");
+    cy.get("td").eq(6).should("contain", "Open2");
+    cy.get("td").eq(7).should("not.have.value", "null");
+    cy.get("td").eq(8).should("contain", "Avg");
+    cy.get("td").eq(9).should("not.have.value", "null");
+    cy.get("td").eq(10).should("contain", "Prj.Price");
+    cy.get("td").eq(11).should("not.have.value", "null");
+    cy.get("td").eq(12).should("contain", "Prior");
+    cy.get("td").eq(13).should("not.have.value", "null");
+    cy.get("td").eq(14).should("contain", "Prj.Vol");
+    cy.get("td").eq(15).should("not.have.value", "null");
+    cy.get("td").eq(16).should("contain", "Ceiling");
+    cy.get("td").eq(17).should("not.have.value", "null");
+    cy.get("td").eq(18).should("contain", "Value");
+    cy.get("td").eq(19).should("not.have.value", "null");
+    cy.get("td").eq(20).should("contain", "Floor");
+    cy.get("td").eq(21).should("not.have.value", "null");
+    cy.get("td").eq(22).should("contain", "Vol");
+    cy.get("td").eq(23).should("not.have.value", "null");
+  
+
+    cy.get(
+      "[ng-include=\"'views/component/bidoffer.html'\"] > .ng-scope > .box > .headbar"
+    ).should("contain", "Bid / Offer");
+    cy.get("td").eq(24).should("contain", "Vol");
+    cy.get("td").eq(25).should("contain", "Bid");
+    cy.get("td").eq(26).should("contain", "Offer");
+    cy.get("td").eq(27).should("contain", "Vol");
+    cy.get("td").eq(28).should("not.have.value", "null");
+    cy.get("td").eq(29).should("not.have.value", "null");
+    cy.get("td").eq(30).should("not.have.value", "null");
+    cy.get("td").eq(31).should("not.have.value", "null");
+    cy.get("td").eq(32).should("not.have.value", "null");
+    cy.get("td").eq(33).should("not.have.value", "null");
+    cy.get("td").eq(34).should("not.have.value", "null");
+    cy.get("td").eq(35).should("not.have.value", "null");
+    cy.get("td").eq(36).should("not.have.value", "null");
+    cy.get("td").eq(37).should("not.have.value", "null");
+    cy.get("td").eq(38).should("not.have.value", "null");
+    cy.get("td").eq(39).should("not.have.value", "null");
+    cy.get("td").eq(40).should("not.have.value", "null");
+    cy.get("td").eq(41).should("not.have.value", "null");
+    cy.get("td").eq(42).should("not.have.value", "null");
+    cy.get("td").eq(43).should("not.have.value", "null");
+    cy.get("td").eq(44).should("not.have.value", "null");
+    cy.get("td").eq(45).should("not.have.value", "null");
+    cy.get("td").eq(46).should("not.have.value", "null");
+    cy.get("td").eq(47).should("not.have.value", "null");
+    
+    cy.get(":nth-child(4) > :nth-child(1) > .box > .headbar").should(
+      "contain",
+      "Price by Volume"
+    );
+    cy.get("#highcharts-3 > svg > .highcharts-background").should(
+      "not.have.value",
+      "null"
+    );
+    
+    cy.get(":nth-child(4) > :nth-child(2) > .box > .headbar").should(
+      "contain",
+      "Buy / Sell Volume"
+    );
+    cy.get("#x2y3").should(
+      "not.have.value",
+      "null"
+    );
+    
+    cy.get(":nth-child(4) > :nth-child(3) > .box > .headbar").should(
+      "contain",
+      "Price Visualizer"
+    );
+    cy.get(":nth-child(3) > .box > .description").should(
+      "not.have.value",
+      "null"
+    );
+  });
+
+  it("[ADVANC] Should search stock and display stock data correctly", () => {
+    cy.get("#input-4").type("ADVANC{enter}");
+    cy.url().should(
+      "eq",
+      "https://stockradars.co/trade/#/realtime?symbol=ADVANC"
+    );
+
+    cy.get(".layout-align-center-start > .ng-binding").should(
+      "contain",
+      "ADVANC"
+    );
+
+    cy.get(":nth-child(3) > .layout-align-start-stretch > .ng-binding").should(
+      "contain",
+      "ADVANCED INFO SERVICE PUBLIC COMPANY"
+    );
+
+    cy.get(
+      "[ng-include=\"'views/component/stockPrice.html'\"] > div.ng-scope > .md-padding > :nth-child(1) > .layout-align-center-end"
+    ).should("not.have.value", "0.00");
+    cy.get(
+      "[ng-include=\"'views/component/stockPrice.html'\"] > div.ng-scope > .md-padding > :nth-child(1) > .layout-align-center-end"
+    ).should("not.have.value", "null");
+    cy.get(
+      "[ng-include=\"'views/component/stockPrice.html'\"] > div.ng-scope > .md-padding > :nth-child(1) > .layout-align-center-end"
+    ).should("not.have.value", "null");
+
+    cy.get(".col-md-8 > :nth-child(1) > .box > .headbar").should(
+      "contain",
+      "Candlestick Chart"
+    );
+    cy.get("#highcharts-22 > svg > .highcharts-background").should(
+      "not.have.value",
+      "null"
+    );
+
+    cy.get(".col-md-6.ng-scope > .box > .headbar").should(
+      "contain",
+      "Intraday Chart"
+    );
+    cy.get("#highcharts-27 > svg > .highcharts-background").should(
+      "not.have.value",
+      "null"
+    );
+
+    cy.get(
+      "[ng-include=\"'views/component/lastExecuted.html'\"] > .box > .headbar"
+    ).should("contain", "Last Executed");
+    cy.get(".box > :nth-child(2) > .ng-binding").should(
+      "not.have.value",
+      "null"
+    );
+    cy.get(":nth-child(2) > .layout-align-center-center").should(
+      "not.have.value",
+      "null"
+    );
+    cy.get(
+      "[ng-include=\"'views/component/lastExecuted.html'\"] > .box > :nth-child(2) > :nth-child(3)"
+    ).should("not.have.value", "null");
+    cy.get(":nth-child(2) > .blue_text.layout-align-end-center").should(
+      "not.have.value",
+      "null"
+    );
+    cy.get(":nth-child(2) > .red1_text.layout-align-end-center").should(
+      "not.have.value",
+      "null"
+    );
+
+    cy.get(
+      "[ng-include=\"'views/component/intraday.html'\"] > .box > .headbar"
+    ).should("contain", "Intraday Information");
+    cy.get("td").eq(0).should("contain", "High");
+    cy.get("td").eq(1).should("not.have.value", "null");
+    cy.get("td").eq(2).should("contain", "Open1");
+    cy.get("td").eq(3).should("not.have.value", "null");
+    cy.get("td").eq(4).should("contain", "Low");
+    cy.get("td").eq(5).should("not.have.value", "null");
+    cy.get("td").eq(6).should("contain", "Open2");
+    cy.get("td").eq(7).should("not.have.value", "null");
+    cy.get("td").eq(8).should("contain", "Avg");
+    cy.get("td").eq(9).should("not.have.value", "null");
+    cy.get("td").eq(10).should("contain", "Prj.Price");
+    cy.get("td").eq(11).should("not.have.value", "null");
+    cy.get("td").eq(12).should("contain", "Prior");
+    cy.get("td").eq(13).should("not.have.value", "null");
+    cy.get("td").eq(14).should("contain", "Prj.Vol");
+    cy.get("td").eq(15).should("not.have.value", "null");
+    cy.get("td").eq(16).should("contain", "Ceiling");
+    cy.get("td").eq(17).should("not.have.value", "null");
+    cy.get("td").eq(18).should("contain", "Value");
+    cy.get("td").eq(19).should("not.have.value", "null");
+    cy.get("td").eq(20).should("contain", "Floor");
+    cy.get("td").eq(21).should("not.have.value", "null");
+    cy.get("td").eq(22).should("contain", "Vol");
+    cy.get("td").eq(23).should("not.have.value", "null");
+  
+
+    cy.get(
+      "[ng-include=\"'views/component/bidoffer.html'\"] > .ng-scope > .box > .headbar"
+    ).should("contain", "Bid / Offer");
+    cy.get("td").eq(24).should("contain", "Vol");
+    cy.get("td").eq(25).should("contain", "Bid");
+    cy.get("td").eq(26).should("contain", "Offer");
+    cy.get("td").eq(27).should("contain", "Vol");
+    cy.get("td").eq(28).should("not.have.value", "null");
+    cy.get("td").eq(29).should("not.have.value", "null");
+    cy.get("td").eq(30).should("not.have.value", "null");
+    cy.get("td").eq(31).should("not.have.value", "null");
+    cy.get("td").eq(32).should("not.have.value", "null");
+    cy.get("td").eq(33).should("not.have.value", "null");
+    cy.get("td").eq(34).should("not.have.value", "null");
+    cy.get("td").eq(35).should("not.have.value", "null");
+    cy.get("td").eq(36).should("not.have.value", "null");
+    cy.get("td").eq(37).should("not.have.value", "null");
+    cy.get("td").eq(38).should("not.have.value", "null");
+    cy.get("td").eq(39).should("not.have.value", "null");
+    cy.get("td").eq(40).should("not.have.value", "null");
+    cy.get("td").eq(41).should("not.have.value", "null");
+    cy.get("td").eq(42).should("not.have.value", "null");
+    cy.get("td").eq(43).should("not.have.value", "null");
+    cy.get("td").eq(44).should("not.have.value", "null");
+    cy.get("td").eq(45).should("not.have.value", "null");
+    cy.get("td").eq(46).should("not.have.value", "null");
+    cy.get("td").eq(47).should("not.have.value", "null");
+    
+    cy.get(":nth-child(4) > :nth-child(1) > .box > .headbar").should(
+      "contain",
+      "Price by Volume"
+    );
+    cy.get("#highcharts-25 > svg > .highcharts-background").should(
+      "not.have.value",
+      "null"
+    );
+    
+    cy.get(":nth-child(4) > :nth-child(2) > .box > .headbar").should(
+      "contain",
+      "Buy / Sell Volume"
+    );
+    cy.get("#x2y3").should(
+      "not.have.value",
+      "null"
+    );
+    
+    cy.get(":nth-child(4) > :nth-child(3) > .box > .headbar").should(
+      "contain",
+      "Price Visualizer"
+    );
+    cy.get(":nth-child(3) > .box > .description").should(
+      "not.have.value",
+      "null"
+    );
+  });
+
+  it("[COM7] Should search stock and display stock data correctly", () => {
+    cy.get("#input-4").type("COM7{enter}");
+    cy.url().should(
+      "eq",
+      "https://stockradars.co/trade/#/realtime?symbol=COM7"
+    );
+
+    cy.get(".layout-align-center-start > .ng-binding").should(
+      "contain",
+      "COM7"
+    );
+
+    cy.get(":nth-child(3) > .layout-align-start-stretch > .ng-binding").should(
+      "contain",
+      "COM7 PUBLIC COMPANY LIMITED"
+    );
+
+    cy.get(
+      "[ng-include=\"'views/component/stockPrice.html'\"] > div.ng-scope > .md-padding > :nth-child(1) > .layout-align-center-end"
+    ).should("not.have.value", "0.00");
+    cy.get(
+      "[ng-include=\"'views/component/stockPrice.html'\"] > div.ng-scope > .md-padding > :nth-child(1) > .layout-align-center-end"
+    ).should("not.have.value", "null");
+    cy.get(
+      "[ng-include=\"'views/component/stockPrice.html'\"] > div.ng-scope > .md-padding > :nth-child(1) > .layout-align-center-end"
+    ).should("not.have.value", "null");
+
+    cy.get(".col-md-8 > :nth-child(1) > .box > .headbar").should(
+      "contain",
+      "Candlestick Chart"
+    );
+    cy.get("#highcharts-66 > svg > .highcharts-background").should(
+      "not.have.value",
+      "null"
+    );
+
+    cy.get(".col-md-6.ng-scope > .box > .headbar").should(
+      "contain",
+      "Intraday Chart"
+    );
+    cy.get("#highcharts-71 > svg > .highcharts-background").should(
+      "not.have.value",
+      "null"
+    );
+
+    cy.get(
+      "[ng-include=\"'views/component/lastExecuted.html'\"] > .box > .headbar"
+    ).should("contain", "Last Executed");
+    cy.get(".box > :nth-child(2) > .ng-binding").should(
+      "not.have.value",
+      "null"
+    );
+    cy.get(":nth-child(2) > .layout-align-center-center").should(
+      "not.have.value",
+      "null"
+    );
+    cy.get(
+      "[ng-include=\"'views/component/lastExecuted.html'\"] > .box > :nth-child(2) > :nth-child(3)"
+    ).should("not.have.value", "null");
+    cy.get(":nth-child(2) > .blue_text.layout-align-end-center").should(
+      "not.have.value",
+      "null"
+    );
+    cy.get(":nth-child(2) > .red1_text.layout-align-end-center").should(
+      "not.have.value",
+      "null"
+    );
+
+    cy.get(
+      "[ng-include=\"'views/component/intraday.html'\"] > .box > .headbar"
+    ).should("contain", "Intraday Information");
+    cy.get("td").eq(0).should("contain", "High");
+    cy.get("td").eq(1).should("not.have.value", "null");
+    cy.get("td").eq(2).should("contain", "Open1");
+    cy.get("td").eq(3).should("not.have.value", "null");
+    cy.get("td").eq(4).should("contain", "Low");
+    cy.get("td").eq(5).should("not.have.value", "null");
+    cy.get("td").eq(6).should("contain", "Open2");
+    cy.get("td").eq(7).should("not.have.value", "null");
+    cy.get("td").eq(8).should("contain", "Avg");
+    cy.get("td").eq(9).should("not.have.value", "null");
+    cy.get("td").eq(10).should("contain", "Prj.Price");
+    cy.get("td").eq(11).should("not.have.value", "null");
+    cy.get("td").eq(12).should("contain", "Prior");
+    cy.get("td").eq(13).should("not.have.value", "null");
+    cy.get("td").eq(14).should("contain", "Prj.Vol");
+    cy.get("td").eq(15).should("not.have.value", "null");
+    cy.get("td").eq(16).should("contain", "Ceiling");
+    cy.get("td").eq(17).should("not.have.value", "null");
+    cy.get("td").eq(18).should("contain", "Value");
+    cy.get("td").eq(19).should("not.have.value", "null");
+    cy.get("td").eq(20).should("contain", "Floor");
+    cy.get("td").eq(21).should("not.have.value", "null");
+    cy.get("td").eq(22).should("contain", "Vol");
+    cy.get("td").eq(23).should("not.have.value", "null");
+  
+
+    cy.get(
+      "[ng-include=\"'views/component/bidoffer.html'\"] > .ng-scope > .box > .headbar"
+    ).should("contain", "Bid / Offer");
+    cy.get("td").eq(24).should("contain", "Vol");
+    cy.get("td").eq(25).should("contain", "Bid");
+    cy.get("td").eq(26).should("contain", "Offer");
+    cy.get("td").eq(27).should("contain", "Vol");
+    cy.get("td").eq(28).should("not.have.value", "null");
+    cy.get("td").eq(29).should("not.have.value", "null");
+    cy.get("td").eq(30).should("not.have.value", "null");
+    cy.get("td").eq(31).should("not.have.value", "null");
+    cy.get("td").eq(32).should("not.have.value", "null");
+    cy.get("td").eq(33).should("not.have.value", "null");
+    cy.get("td").eq(34).should("not.have.value", "null");
+    cy.get("td").eq(35).should("not.have.value", "null");
+    cy.get("td").eq(36).should("not.have.value", "null");
+    cy.get("td").eq(37).should("not.have.value", "null");
+    cy.get("td").eq(38).should("not.have.value", "null");
+    cy.get("td").eq(39).should("not.have.value", "null");
+    cy.get("td").eq(40).should("not.have.value", "null");
+    cy.get("td").eq(41).should("not.have.value", "null");
+    cy.get("td").eq(42).should("not.have.value", "null");
+    cy.get("td").eq(43).should("not.have.value", "null");
+    cy.get("td").eq(44).should("not.have.value", "null");
+    cy.get("td").eq(45).should("not.have.value", "null");
+    cy.get("td").eq(46).should("not.have.value", "null");
+    cy.get("td").eq(47).should("not.have.value", "null");
+    
+    cy.get(":nth-child(4) > :nth-child(1) > .box > .headbar").should(
+      "contain",
+      "Price by Volume"
+    );
+    cy.get("#highcharts-69 > svg > .highcharts-background").should(
+      "not.have.value",
+      "null"
+    );
+    
+    cy.get(":nth-child(4) > :nth-child(2) > .box > .headbar").should(
+      "contain",
+      "Buy / Sell Volume"
+    );
+    cy.get("#x2y3").should(
+      "not.have.value",
+      "null"
+    );
+    
+    cy.get(":nth-child(4) > :nth-child(3) > .box > .headbar").should(
+      "contain",
+      "Price Visualizer"
+    );
+    cy.get(":nth-child(3) > .box > .description").should(
+      "not.have.value",
+      "null"
+    );
+  });
 
   // it("Should logout to landing page", () => {
   //   cy.get('[class="md-list-item-text"]').contains("Logout").click();
