@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/SiNEtudio/cypress-stockradars-web#readme",
   "dependencies": {
-    "cypress": "^6.0.0",
+    "cypress": "^6.1.0",
     "lighthouse": "^6.4.1"
   }
 }
